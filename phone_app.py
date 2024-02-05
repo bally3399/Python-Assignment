@@ -1,4 +1,3 @@
-contacts = {}
 def main():
     exit_program = False
     while not exit_program:
@@ -25,6 +24,9 @@ def add_contact():
     phone_number = input("Enter phone number: ")
     name = input("Enter name: ")
     contacts[name] = phone_number
+        if len(phone_number) > 13:
+        print("Invalid number.")
+        return
     print(f"contact {name} added successfully")
 
 def search_by_name():
@@ -55,12 +57,10 @@ def display_contacts():
         print("Contacts:")
         for name, phone_number in contacts.items():
             print(f"{name}")
-            print()
             print(f"{phone_number}")
     else:
         print("No contacts available.")
-
-
+contacts = {}
 main()
 
 
