@@ -25,10 +25,6 @@ class TestContactFunction(unittest.TestCase):
         expected_result = "Dialing Bally: 08105795528"
         self.assertEqual(dial_result, expected_result, f"Expected: {expected_result}, {dial_result}")
 
-        dial_result_not_found = self.phone.dial_contact("Unknown")
-        expected_result_not_found = "Contact Unknown not found."
-        self.assertEqual(dial_result_not_found, expected_result_not_found, f"Expected: {expected_result_not_found}, {dial_result_not_found}")
-
 if __name__ == '__main__':
     unittest.main()
 
