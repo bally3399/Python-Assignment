@@ -11,7 +11,7 @@ class TestContactFunction(unittest.TestCase):
     def test_delete_contact(self):
         self.phone.add_contact("jane", "08106795528")
         self.phone.delete_contact("john")
-        self.assertNotIn("Jane", self.phone.contacts, "Contact not deleted successfully.")
+        self.assertNotIn("john", self.phone.contacts, "Contact not deleted successfully.")
 
     def test_display_contacts(self):
         self.phone.add_contact("Ruth", "1111111111")
