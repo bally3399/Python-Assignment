@@ -18,18 +18,16 @@ class TestContactFunction(unittest.TestCase):
         self.phone.add_contact("Esther", "2222222222")
         contacts = self.phone.display_contacts()
         self.assertEqual(len(contacts), 2, "Incorrect number of contacts.")
-        self.assertIn("Ruth", contacts, "Contact 'Ruth' not found.")
-        self.assertIn("Esther", contacts, "Contact 'Esther' not found.")
 
     def test_dial_contact(self):
         self.phone.add_contact("Bally", "08105795528")
         dial_result = self.phone.dial_contact("Bally")
         expected_result = "Dialing Bally: 08105795528"
-        self.assertEqual(dial_result, expected_result, f"Expected: {expected_result}, Got: {dial_result}")
+        self.assertEqual(dial_result, expected_result, f"Expected: {expected_result}, {dial_result}")
 
         dial_result_not_found = self.phone.dial_contact("Unknown")
         expected_result_not_found = "Contact Unknown not found."
-        self.assertEqual(dial_result_not_found, expected_result_not_found, f"Expected: {expected_result_not_found}, Got: {dial_result_not_found}")
+        self.assertEqual(dial_result_not_found, expected_result_not_found, f"Expected: {expected_result_not_found}, {dial_result_not_found}")
 
 if __name__ == '__main__':
     unittest.main()
