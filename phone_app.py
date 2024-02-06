@@ -24,9 +24,11 @@ def add_contact():
     phone_number = input("Enter phone number: ")
     name = input("Enter name: ")
     contacts[name] = phone_number
-        if len(phone_number) > 13:
+    if len(phone_number) > 13:
         print("Invalid number.")
         return
+    contact = {"name": name , "phone number": phone_number}
+    contacts.append(contact)
     print(f"contact {name} added successfully")
 
 def search_by_name():
@@ -60,7 +62,7 @@ def display_contacts():
             print(f"{phone_number}")
     else:
         print("No contacts available.")
-contacts = {}
+contacts = []
 main()
 
 
