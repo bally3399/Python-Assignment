@@ -15,20 +15,22 @@ class Main:
         print("********************************")
         choice = input("Enter your choice: ")
         if choice == "1":
-            self.create_entry()
+            self.create_diary()
         elif choice == "2":
-            self.unlock()
+            self.create_entry()
         elif choice == "3":
-            self.lock()
+            self.unlock()
         elif choice == "4":
-            self.check_if_diary_is_locked()
+            self.lock()
         elif choice == "5":
-            self.find_entry()
+            self.check_if_diary_is_locked()
         elif choice == "6":
+            self.find_entry()
+        elif choice == "7":
             self.delete_entry()
-        elif choice == 7:
+        elif choice == "8":
             self.update_entry()
-        elif choice == 8:
+        elif choice == "9":
             self.exit()
         else:
             print("Enter valid choice")
@@ -90,7 +92,7 @@ class Main:
         self.user.update_entry(id_number, title, body)
         print("You have successfully updated your entry")
         self.display()
-        
+
     def create_diary(self):
         name = input("Enter your name: ")
         password = input("Enter your password: ")
