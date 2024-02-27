@@ -1,8 +1,10 @@
 from diary import Diary
+from user import User
 
 
 class Main:
     def __init__(self):
+        self.user = User()
         self.diary = Diary("username", "password")
 
     def display(self):
@@ -35,14 +37,14 @@ class Main:
     def create_entry(self):
         title = input("Enter title: ")
         body = input("Enter body: ")
-        self.diary.create_entry(title, body)
+        self.user.add_entry(title, body)
         print("Entry created successfully!!")
         self.display()
 
     def unlock(self):
         password = str(input("Enter your password: "))
         if self.diary.password == password:
-            self.diary.un_locked(password)
+            self.user.unlock_diary(password)
             print("You have successfully unlock dairy")
         else:
             print("Incorrect Password")
@@ -51,7 +53,7 @@ class Main:
     def lock(self):
         password = str(input("Enter your password: "))
         if self.diary.password == password:
-            self.diary.lock()
+            self.user.lock_diary()
             print("You have successfully lock dairy")
         else:
             print("Incorrect Password")
@@ -82,11 +84,19 @@ class Main:
         self.display()
 
     def update_entry(self):
-        id_number = input("Entry your id")
-        title = str(input("Enter title"))
-        body = str(input("Enter body"))
-        self.diary.update_entry(id_number, title, body)
+        id_number = input("Enter your id: ")
+        title = str(input("Enter title: "))
+        body = str(input("Enter body: "))
+        self.user.update_entry(id_number, title, body)
         print("You have successfully updated your entry")
+        self.display()
+        
+    def create_diary(self):
+        name = input("Enter your name: ")
+        password = input("Enter your password: ")
+        self.user.create_diary(name, password)
+        print("You have successfully create diary")
+        self.display()
 
     def exit(self):
         print("Exit")
