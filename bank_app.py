@@ -1,10 +1,7 @@
-
-from oop1.account import Account
 from oop1.bank import Bank
 from oop1.exceptions import InvalidAmountException, InvalidPinException, InsufficientFundsException, \
     AccountNotFoundException
 
-# account = Account('bimbim', 1, 1001)
 
 class BankApp:
     def __init__(self):
