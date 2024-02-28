@@ -1,16 +1,20 @@
+
+from oop1.account import Account
 from oop1.bank import Bank
 from oop1.exceptions import InvalidAmountException, InvalidPinException, InsufficientFundsException, \
     AccountNotFoundException
 
+# account = Account('bimbim', 1, 1001)
 
 class BankApp:
     def __init__(self):
         self.bank = Bank("firstBank")
 
+
     def display(self):
         print("******************************************")
         print("Bank App")
-        print("1.Create customer\n2. Close Account\n3. Deposit \n4.Transfer \n5.Withdraw\n6.Check balance "
+        print("1.Create customer\n2.Close Account\n3.Deposit \n4.Transfer \n5.Withdraw\n6.Check balance "
               "\n7.Exit App")
         print("*******************************************")
         choice = input("Enter your choice: ")
@@ -37,13 +41,10 @@ class BankApp:
         first_name = input("Enter first name: ")
         last_name = input("Enter last name: ")
         pin = input("Enter pin: ")
-        self.bank.register_customer(first_name, last_name, pin)
+        account = self.bank.register_customer(first_name, last_name, pin)
         print("Customer register successfully!")
-        print("Account Number: ", self.bank.get_accounts() + 1)
+        print("Account Number: ", account.get_number())
         self.display()
-
-    def generate_account_number(self):
-        return self.generate_account_number() + 1
 
     def deposit(self):
         account_number = input("Enter your account number: ")
@@ -85,7 +86,8 @@ class BankApp:
         account_number = input("Enter your account number: ")
         pin = input("Enter your pin: ")
         try:
-            self.bank.check_balance(int(account_number), pin)
+            balance = self.bank.check_balance(int(account_number), pin)
+            print("Your balance is:", balance)
         except InvalidPinException as e:
             print(e)
         finally:
@@ -100,7 +102,8 @@ class BankApp:
         except InvalidPinException as e:
             print(e)
 
-    def exit(self):
+    @staticmethod
+    def exit():
         print("Exit")
         return
 
