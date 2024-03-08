@@ -1,7 +1,8 @@
 class Gun:
-    def __init__(self):
+    def __init__(self, pin):
         self.is_empty = True
         self.bullet = 0
+        self.__pin = pin
 
     def chamber_is_empty(self):
         return self.is_empty
@@ -25,6 +26,8 @@ class Gun:
         self.is_empty = False
         return self.bullet
 
-
-
-
+    def pin(self, password):
+        if self.__pin == password:
+            return self.__pin
+        else:
+            raise ValueError("Enter correct password")
